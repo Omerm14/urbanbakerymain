@@ -11,11 +11,11 @@ export default function Home() {
           <a href="#contact">צרו קשר</a>
           <a href="#business">לעסקים</a>
           <a href="#catering">מגשי אירוח</a>
-          <a href="#about">בית</a>
+          <a href="#cafe">בית הקפה</a>
         </nav>
         <details className="mobile-nav">
           <summary aria-label="פתיחת תפריט">תפריט</summary>
-          <nav><a href="#about">אודות</a><a href="#business">לעסקים</a><a href="#catering">מגשי אירוח</a><a href="#contact">צרו קשר</a></nav>
+          <nav><a href="#cafe">בית הקפה</a><a href="#catering">מגשי אירוח</a><a href="#business">לעסקים</a><a href="#contact">צרו קשר</a></nav>
         </details>
       </header>
 
@@ -32,56 +32,59 @@ export default function Home() {
         <div className="hero-bottom"><span>NITZANA 14</span><span>TEL AVIV–YAFO</span><span>EST. 2012</span></div>
       </section>
 
-      <section className="intro marble" id="about">
-        <div className="section-heading"><span className="hairline" /><h2>הסיפור שלנו.</h2><small>THE URBAN BAKERY</small></div>
-        <div className="intro-copy">
-          <p className="lead">בייקרי עירוני שנולד מאהבה גדולה לחומרי גלם, לאנשים ולרגע הזה שבו מאפה יוצא מהתנור.</p>
-          <div className="columns">
-            <p>בלב מתחם נגה, בין מבני השימור ופארק המסילה, יצרנו בית של אפייה מדויקת וקפה טוב. מקום שמרגיש קצת כמו אירופה ומאוד כמו הבית.</p>
-            <p>בכל בוקר אנחנו מכינים קרואסונים, לחמים, עוגות ועוגיות בעבודת יד — בטכניקות קלאסיות, עם חומרי גלם מעולים וללא קיצורי דרך.</p>
+      <section className="chapter" id="cafe">
+        <figure className="chapter-image">
+          <img src="/images/cafe-building.jpg" alt="בית הקפה Urban Bakery במתחם נגה" />
+          <figcaption>01 · NOGA, TEL AVIV–YAFO</figcaption>
+        </figure>
+        <div className="chapter-copy marble">
+          <span className="chapter-label">THE CAFÉ</span>
+          <h2>מחבוא קטן.<br />בלב העיר.</h2>
+          <p className="chapter-lead">קצת אירופה.<br />מאוד הבית.</p>
+          <p className="chapter-body">מבנה לשימור ירקרק, גינה שקטה וריח של אפייה מהבוקר. קפה איטלקי עדין, לחמי מחמצת ומאפים שנולדים בקונדיטוריה שמעבר לפינה.</p>
+          <div className="chapter-details">
+            <p><span>כתובת</span>ניצנה 14, מתחם נגה<br />תל אביב–יפו</p>
+            <p><span>שעות</span>א׳–ה׳ · 07:00–19:00<br />ו׳–ש׳ · 07:00–16:00</p>
           </div>
+          <a className="text-cta" href="https://maps.google.com/?q=%D7%A0%D7%99%D7%A6%D7%A0%D7%94+14+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noreferrer">איך מגיעים ←</a>
         </div>
       </section>
 
-      <section className="image-break image-break-cake" aria-label="קונדיטוריה בעבודת יד">
-        <img src="/images/cake.jpg" alt="עוגה בעבודת יד של Urban Bakery" />
-        <div className="image-caption"><span>01</span><strong>PÂTISSERIE</strong><p>עוגות ועוגיות שנראות כמו שהן מרגישות.</p></div>
-      </section>
-
-      <section className="offerings" id="catering">
-        <div className="section-heading"><span className="hairline" /><h2>מה אנחנו אופים.</h2><small>BAKED DAILY</small></div>
-        <div className="offering-list">
-          <article><span>01</span><h3>מאפים</h3><p>קרואסונים, בריושים ופחזניות עם שכבות חמאה מדויקות.</p></article>
-          <article><span>02</span><h3>עוגות</h3><p>עוגות, טארטים ועוגיות בעבודת יד לאירוח או סתם כי בא.</p></article>
-          <article><span>03</span><h3>קפה</h3><p>קפה איטלקי בקלייה עדינה, מוגש בדיוק כמו שאנחנו אוהבים.</p></article>
-          <article><span>04</span><h3>Urban Table</h3><p>מגשי אירוח מתוקים ומלוחים, מוקפדים ומוכנים להגשה.</p></article>
+      <section className="chapter chapter-reverse" id="catering">
+        <figure className="chapter-image">
+          <img src="/images/catering-tray.jpg" alt="מגש אירוח של Urban Bakery" />
+          <figcaption>02 · URBAN TABLE</figcaption>
+        </figure>
+        <div className="chapter-copy chapter-copy-paper">
+          <span className="chapter-label">CATERING</span>
+          <h2>אירוח.<br />בלי להתאמץ.</h2>
+          <p className="chapter-lead">פתוח. מוגש.<br />נגמר מהר.</p>
+          <p className="chapter-body">מתוקים, מלוחים, כריכים ועוגות — למשרד, לאירוע או לבוקר של חתן וכלה. כל מגש מגיע מוקפד, נדיב ומוכן לרגע הנכון.</p>
+          <ul className="chapter-list"><li>ישיבות ו-Happy Hour</li><li>אירועים עסקיים</li><li>התארגנות חתן וכלה</li></ul>
+          <a className="text-cta" href={whatsappHref} target="_blank" rel="noreferrer">בונים הזמנה יחד ←</a>
         </div>
-        <a className="quiet-link" href={whatsappHref} target="_blank" rel="noreferrer">לבניית הזמנה יחד ←</a>
       </section>
 
-      <section className="image-break image-break-cafe" aria-label="בית הקפה במתחם נגה">
-        <img src="/images/matcha.jpg" alt="משקאות בבית הקפה Urban Bakery" />
-        <div className="floating-copy"><span>THE CAFÉ</span><h2>קצת אירופה.<br />מאוד הבית.</h2></div>
-      </section>
-
-      <section className="business marble" id="business">
-        <div className="section-heading"><span className="hairline" /><h2>Urban Bakery<br />אצלכם בעסק.</h2><small>FOR BUSINESS</small></div>
-        <div className="business-content">
-          <p className="lead">יש לכם בית קפה או מסעדה? אנחנו אופים. אתם מגישים.</p>
-          <div className="business-grid">
-            <article><strong>טרי. כל יום.</strong><p>נאפה בשעת בוקר מוקדמת ומגיע אליכם כשהוא בשיא.</p></article>
-            <article><strong>מוכן להגשה.</strong><p>מוצר אסתטי, ארוז ומוגמר — בלי צורך במטבח קונדיטוריה.</p></article>
-            <article><strong>גם בסופ״ש.</strong><p>אספקה שוטפת גם בשישי ובשבת, בטווחי זמן קבועים.</p></article>
-          </div>
-          <a className="quiet-link" href={whatsappHref} target="_blank" rel="noreferrer">מתחילים שיתוף פעולה ←</a>
+      <section className="chapter" id="business">
+        <figure className="chapter-image">
+          <img src="/images/business-croissant.jpg" alt="קרואסונים טריים בדרך ללקוחות עסקיים" />
+          <figcaption>03 · FRESH DAILY</figcaption>
+        </figure>
+        <div className="chapter-copy marble">
+          <span className="chapter-label">FOR BUSINESS</span>
+          <h2>אנחנו אופים.<br />אתם מגישים.</h2>
+          <p className="chapter-lead">טרי בבוקר.<br />מוכן אצלכם.</p>
+          <p className="chapter-body">מאפים, לחמים, עוגות ועוגיות בעבודת יד. נאפים מוקדם, מגיעים בזמן ומוכנים להצבה — גם בשישי ובשבת.</p>
+          <div className="business-points"><span>אספקה יומית</span><span>מוצר מוגמר</span><span>טכניקות קלאסיות</span></div>
+          <a className="text-cta" href={whatsappHref} target="_blank" rel="noreferrer">מתחילים לעבוד יחד ←</a>
         </div>
       </section>
 
       <section className="contact" id="contact">
         <img src="/images/urban-logo.png" alt="The Urban Bakery" />
-        <span className="hairline" />
-        <p>מחכים לדבר איתכם.</p>
-        <a href={whatsappHref} target="_blank" rel="noreferrer">LET&apos;S TALK</a>
+        <span className="contact-rule" />
+        <h2>דברים טובים<br />מתחילים כאן.</h2>
+        <a className="contact-cta" href={whatsappHref} target="_blank" rel="noreferrer">LET&apos;S TALK</a>
         <div className="contact-details"><a href="tel:+972557756454">055–775–6454</a><a href="https://maps.google.com/?q=%D7%A0%D7%99%D7%A6%D7%A0%D7%94+14+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noreferrer">ניצנה 14, מתחם נגה</a><span>א׳–ה׳ 07:00–19:00 · ו׳–ש׳ 07:00–16:00</span></div>
       </section>
 
