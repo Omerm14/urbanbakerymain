@@ -4,16 +4,6 @@ const whatsappHref = "https://wa.me/972557756454";
 
 export const dynamic = "force-dynamic";
 
-function Multiline({ value }: { value: string }) {
-  const lines = value.split("\n");
-  return lines.map((line, index) => (
-    <span key={`${line}-${index}`}>
-      {line}
-      {index < lines.length - 1 && <br />}
-    </span>
-  ));
-}
-
 export default async function Home() {
   const content = await getSiteContent();
 
@@ -58,8 +48,8 @@ export default async function Home() {
           <p className="chapter-lead">{content.cafe.lead1}<br />{content.cafe.lead2}</p>
           <p className="chapter-body">{content.cafe.body}</p>
           <div className="chapter-details">
-            <p><span>כתובת</span><Multiline value={content.cafe.address} /></p>
-            <p><span>שעות</span><Multiline value={content.cafe.hours} /></p>
+            <p><span className="detail-label">כתובת</span><span className="detail-value" dir="rtl">{content.cafe.address}</span></p>
+            <p><span className="detail-label">שעות</span><span className="detail-value" dir="rtl">{content.cafe.hours}</span></p>
           </div>
           <a className="text-cta" href="https://maps.google.com/?q=%D7%A0%D7%99%D7%A6%D7%A0%D7%94+14+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noreferrer">{content.cafe.cta} ←</a>
         </div>

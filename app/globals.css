@@ -50,7 +50,8 @@ p,h1,h2 { margin:0; }
 .chapter-details { width:100%; margin-top:45px; padding:22px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr; gap:28px; }
 .chapter-details p { font-size:14px; line-height:1.7; }
 .chapter-details p + p { border-right:1px solid var(--line); padding-right:28px; }
-.chapter-details span { display:block; margin-bottom:7px; color:var(--gold); font-size:10px; }
+.chapter-details .detail-label { display:block; margin-bottom:7px; color:var(--gold); font-size:10px; }
+.chapter-details .detail-value { display:block; white-space:pre-line; color:inherit; font-size:inherit; direction:rtl; unicode-bidi:plaintext; }
 .text-cta { margin-top:38px; padding-bottom:7px; border-bottom:1px solid; font-size:14px; font-weight:400; }
 .chapter-list { width:100%; list-style:none; padding:0; margin:44px 0 0; border-top:1px solid var(--line); }
 .chapter-list li { padding:16px 0; border-bottom:1px solid var(--line); font-size:15px; }
