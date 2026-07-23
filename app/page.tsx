@@ -8,14 +8,14 @@ export default function Home() {
           <img src="/images/urban-logo.png" alt="The Urban Bakery" />
         </a>
         <nav className="site-nav" aria-label="ניווט ראשי">
-          <a href="#contact">צרו קשר</a>
-          <a href="#business">לעסקים</a>
+          <a href="#top">בית</a>
           <a href="#catering">מגשי אירוח</a>
-          <a href="#cafe">בית הקפה</a>
+          <a href="#business">לעסקים</a>
+          <a href="#contact">צרו קשר</a>
         </nav>
         <details className="mobile-nav">
           <summary aria-label="פתיחת תפריט">תפריט</summary>
-          <nav><a href="#cafe">בית הקפה</a><a href="#catering">מגשי אירוח</a><a href="#business">לעסקים</a><a href="#contact">צרו קשר</a></nav>
+          <nav><a href="#top">בית</a><a href="#catering">מגשי אירוח</a><a href="#business">לעסקים</a><a href="#contact">צרו קשר</a></nav>
         </details>
       </header>
 
@@ -24,10 +24,9 @@ export default function Home() {
         <div className="hero-shade" />
         <div className="hero-center">
           <img src="/images/urban-logo.png" alt="The Urban Bakery" />
-          <h1 id="hero-title">BAKE HOUSE · NOGA</h1>
+          <h1 id="hero-title">BAKE HOUSE</h1>
           <span className="hero-rule" />
-          <p>רוצים Urban Bakery אצלכם?</p>
-          <a href={whatsappHref} target="_blank" rel="noreferrer">LET&apos;S TALK ↙</a>
+          <a href={whatsappHref} target="_blank" rel="noreferrer">LET&apos;S TALK</a>
         </div>
         <div className="hero-bottom"><span>NITZANA 14</span><span>TEL AVIV–YAFO</span><span>EST. 2012</span></div>
       </section>
