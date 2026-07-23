@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="tableTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2e8d4"/>
+      <stop offset="1" stop-color="#e6d8b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#tableTop)"/>
+
+  <!-- tray -->
+  <ellipse cx="600" cy="470" rx="480" ry="260" fill="#efe4d0" stroke="#c9b98d" stroke-width="6"/>
+  <ellipse cx="600" cy="470" rx="440" ry="228" fill="#f7f0e4" stroke="#d9cba3" stroke-width="3"/>
+
+  <!-- rows of mini pastries -->
+  <g>
+    <!-- mini croissants -->
+    <g transform="translate(360,340)" fill="#d99a4f">
+      <path d="M-40,4 C-32,-30 4,-40 26,-18 C40,-4 40,18 22,26 C26,10 18,-4 0,-6 C-18,-8 -26,4 -22,22 C-36,18 -46,22 -40,4 Z"/>
+    </g>
+    <g transform="translate(460,320) scale(0.95)" fill="#e3a24d">
+      <path d="M-40,4 C-32,-30 4,-40 26,-18 C40,-4 40,18 22,26 C26,10 18,-4 0,-6 C-18,-8 -26,4 -22,22 C-36,18 -46,22 -40,4 Z"/>
+    </g>
+    <g transform="translate(560,335) scale(1.05)" fill="#d99a4f">
+      <path d="M-40,4 C-32,-30 4,-40 26,-18 C40,-4 40,18 22,26 C26,10 18,-4 0,-6 C-18,-8 -26,4 -22,22 C-36,18 -46,22 -40,4 Z"/>
+    </g>
+
+    <!-- macarons stack -->
+    <g transform="translate(760,360)">
+      <ellipse cx="0" cy="30" rx="34" ry="12" fill="#b5592e"/>
+      <ellipse cx="0" cy="14" rx="34" ry="12" fill="#f7f0e4"/>
+      <ellipse cx="0" cy="0" rx="34" ry="12" fill="#8a9b6e"/>
+      <ellipse cx="46" cy="34" rx="34" ry="12" fill="#c98a45"/>
+      <ellipse cx="46" cy="18" rx="34" ry="12" fill="#f7f0e4"/>
+    </g>
+
+    <!-- tartlets -->
+    <g transform="translate(430,430)">
+      <circle r="34" fill="#eab26a"/>
+      <circle r="26" fill="#b5592e"/>
+      <circle r="9" cy="-2" fill="#7a3618"/>
+    </g>
+    <g transform="translate(520,450)">
+      <circle r="34" fill="#eab26a"/>
+      <circle r="26" fill="#6d7a5c"/>
+    </g>
+    <g transform="translate(610,428)">
+      <circle r="34" fill="#eab26a"/>
+      <circle r="26" fill="#c9622f"/>
+    </g>
+
+    <!-- sandwiches -->
+    <g transform="translate(760,470)">
+      <rect x="-60" y="-16" width="120" height="32" rx="8" fill="#e8c78c"/>
+      <rect x="-60" y="-4" width="120" height="8" fill="#6d7a5c"/>
+      <rect x="-60" y="4" width="120" height="6" fill="#b5592e"/>
+    </g>
+    <g transform="translate(760,520)">
+      <rect x="-60" y="-16" width="120" height="32" rx="8" fill="#e8c78c"/>
+      <rect x="-60" y="-4" width="120" height="8" fill="#c98a45"/>
+      <rect x="-60" y="4" width="120" height="6" fill="#8a9b6e"/>
+    </g>
+
+    <!-- mini cakes -->
+    <g transform="translate(360,520)">
+      <rect x="-30" y="-24" width="60" height="48" rx="6" fill="#f7f0e4"/>
+      <rect x="-30" y="-24" width="60" height="14" fill="#b5592e"/>
+      <circle cx="0" cy="-30" r="5" fill="#8a3f1f"/>
+    </g>
+    <g transform="translate(440,536)">
+      <rect x="-30" y="-24" width="60" height="48" rx="6" fill="#f7f0e4"/>
+      <rect x="-30" y="-24" width="60" height="14" fill="#6d7a5c"/>
+      <circle cx="0" cy="-30" r="5" fill="#4f5a41"/>
+    </g>
+  </g>
+
+  <!-- herb garnish -->
+  <g stroke="#4f5a41" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M900,420 q20,-14 10,-34"/>
+    <path d="M912,410 q20,-8 18,-28"/>
+    <path d="M280,470 q-20,-10 -14,-30"/>
+  </g>
+</svg>

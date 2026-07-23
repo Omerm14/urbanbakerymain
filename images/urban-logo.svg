@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <path id="topArc" d="M 30,100 A 70,70 0 0 1 170,100" />
+    <path id="botArc" d="M 42,140 A 58,58 0 0 0 158,140" />
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="none" stroke="#2c2620" stroke-width="3"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#2c2620" stroke-width="1.4"/>
+  <text font-family="Frank Ruhl Libre, serif" font-weight="700" font-size="17" letter-spacing="4" fill="#2c2620">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">URBAN BAKERY</textPath>
+  </text>
+  <text font-family="Frank Ruhl Libre, serif" font-weight="700" font-size="13" letter-spacing="3" fill="#b5592e">
+    <textPath href="#botArc" startOffset="50%" text-anchor="middle">TEL AVIV YAFO</textPath>
+  </text>
+  <g transform="translate(100,100)">
+    <path d="M0,-36 C16,-32 25,-16 25,-2 C25,12 16,23 0,25 C-16,23 -25,12 -25,-2 C-25,-16 -16,-32 0,-36 Z" fill="#b5592e" stroke="#2c2620" stroke-width="2.6"/>
+    <path d="M0,-29 C-5,-19 -5,-9 0,-2" fill="none" stroke="#2c2620" stroke-width="2"/>
+    <path d="M0,-29 C5,-19 5,-9 0,-2" fill="none" stroke="#2c2620" stroke-width="2"/>
+    <path d="M-15,-5 C-11,3 -11,11 -18,17" fill="none" stroke="#2c2620" stroke-width="1.8"/>
+    <path d="M15,-5 C11,3 11,11 18,17" fill="none" stroke="#2c2620" stroke-width="1.8"/>
+  </g>
+</svg>
