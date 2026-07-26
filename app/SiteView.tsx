@@ -32,10 +32,10 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
           <a href="#gallery">{t.navGallery}</a>
           <a href="#careers">{t.navCareers}</a>
           <a href="#contact">{t.navContact}</a>
-          <button type="button" className="lang-toggle" onClick={toggleLang} aria-label={langToggleAria}>
-            {nextLangLabel}
-          </button>
         </nav>
+        <button type="button" className="lang-toggle site-lang-toggle" onClick={toggleLang} aria-label={langToggleAria}>
+          {nextLangLabel}
+        </button>
         <details className="mobile-nav">
           <summary aria-label={t.menuOpenAria}>{t.menuLabel}</summary>
           <nav>

@@ -18,9 +18,10 @@ p,h1,h2 { margin:0; }
 .site-nav a:hover::after { transform:scaleX(1); }
 .mobile-nav { display:none; }
 
-.lang-toggle { appearance:none; cursor:pointer; background:transparent; color:inherit; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:6px 16px; font:12px Arial,sans-serif; letter-spacing:.08em; opacity:.9; transition:opacity .2s,background .2s,border-color .2s; }
-.lang-toggle:hover { opacity:1; background:rgba(255,255,255,.14); border-color:white; }
-.mobile-nav nav .lang-toggle { justify-self:start; }
+.lang-toggle { appearance:none; cursor:pointer; background:transparent; border:0; padding:0; color:inherit; font:inherit; opacity:.85; transition:opacity .2s; }
+.lang-toggle:hover { opacity:1; }
+.site-lang-toggle { grid-column:3; justify-self:end; font-size:14px; letter-spacing:.04em; }
+.mobile-nav nav .lang-toggle { justify-self:start; font-size:13px; }
 
 .hero { min-height:100svh; position:relative; color:white; display:grid; place-items:center; overflow:hidden; }
 .hero-bg { position:absolute; inset:0; height:100%; object-fit:cover; object-position:50% 58%; transform:scale(1.04); }
@@ -174,6 +175,7 @@ html[dir="ltr"] .careers-fields { text-align:left; }
 @media (max-width:900px) {
   .site-header { grid-template-columns:1fr auto; }
   .site-nav { display:none; }
+  .site-lang-toggle { display:none; }
   .mobile-nav { display:block; position:relative; }
   .mobile-nav summary { list-style:none; cursor:pointer; font-size:13px; }
   .mobile-nav summary::-webkit-details-marker { display:none; }
