@@ -18,9 +18,13 @@ p,h1,h2 { margin:0; }
 .site-nav a:hover::after { transform:scaleX(1); }
 .mobile-nav { display:none; }
 
-.lang-toggle { appearance:none; cursor:pointer; background:transparent; color:inherit; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:6px 16px; font:12px Arial,sans-serif; letter-spacing:.08em; opacity:.9; transition:opacity .2s,background .2s,border-color .2s; }
-.lang-toggle:hover { opacity:1; background:rgba(255,255,255,.14); border-color:white; }
-.mobile-nav nav .lang-toggle { justify-self:start; }
+.lang-toggle { appearance:none; cursor:pointer; background:transparent; border:0; padding:0; color:inherit; font:inherit; opacity:.85; transition:opacity .2s; }
+.lang-toggle:hover { opacity:1; }
+.site-nav .lang-toggle { order:-1; padding:31px 0 28px; position:relative; }
+html[dir="ltr"] .site-nav .lang-toggle { order:1; }
+.site-nav .lang-toggle::after { content:""; position:absolute; left:0; right:0; bottom:20px; height:1px; background:white; transform:scaleX(0); transition:transform .3s ease; }
+.site-nav .lang-toggle:hover::after { transform:scaleX(1); }
+.mobile-nav nav .lang-toggle { justify-self:start; font-size:13px; }
 
 .hero { min-height:100svh; position:relative; color:white; display:grid; place-items:center; overflow:hidden; }
 .hero-bg { position:absolute; inset:0; height:100%; object-fit:cover; object-position:50% 58%; transform:scale(1.04); }
