@@ -18,6 +18,10 @@ p,h1,h2 { margin:0; }
 .site-nav a:hover::after { transform:scaleX(1); }
 .mobile-nav { display:none; }
 
+.lang-toggle { appearance:none; cursor:pointer; background:transparent; color:inherit; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:6px 16px; font:12px Arial,sans-serif; letter-spacing:.08em; opacity:.9; transition:opacity .2s,background .2s,border-color .2s; }
+.lang-toggle:hover { opacity:1; background:rgba(255,255,255,.14); border-color:white; }
+.mobile-nav nav .lang-toggle { justify-self:start; }
+
 .hero { min-height:100svh; position:relative; color:white; display:grid; place-items:center; overflow:hidden; }
 .hero-bg { position:absolute; inset:0; height:100%; object-fit:cover; object-position:50% 58%; transform:scale(1.04); }
 .hero-shade { position:absolute; inset:0; background:rgba(29,24,18,.39); }
@@ -118,6 +122,13 @@ footer > a { justify-self:end; }
 .careers-fields button:disabled { opacity:.55; cursor:wait; }
 .careers-success { margin-top:50px; font-size:17px; color:var(--ink); }
 
+html[dir="ltr"] .site-nav { direction:ltr; }
+html[dir="ltr"] .chapter-copy { text-align:left; }
+html[dir="ltr"] .chapter-details .detail-value { direction:ltr; }
+html[dir="ltr"] .chapter-details p + p { border-right:0; padding-right:0; border-left:1px solid var(--line); padding-left:28px; }
+html[dir="ltr"] .business-points span + span { border-right:0; border-left:1px solid var(--line); }
+html[dir="ltr"] .careers-fields { text-align:left; }
+
 .editor-shell { min-height:100svh; background:#eeeadf; color:var(--ink); }
 .editor-login { min-height:100svh; display:grid; place-items:center; padding:24px; text-align:center; }
 .editor-login form { width:min(360px,100%); display:grid; gap:22px; text-align:right; }
@@ -167,6 +178,7 @@ footer > a { justify-self:end; }
   .mobile-nav summary { list-style:none; cursor:pointer; font-size:13px; }
   .mobile-nav summary::-webkit-details-marker { display:none; }
   .mobile-nav nav { position:absolute; right:0; top:34px; min-width:210px; display:grid; gap:18px; padding:24px; background:rgba(40,37,31,.94); direction:rtl; text-align:right; }
+  html[dir="ltr"] .mobile-nav nav { direction:ltr; text-align:left; }
   .chapter { grid-template-columns:1fr; }
   .chapter-image,.chapter-reverse .chapter-image { grid-column:1; grid-row:1; min-height:70svh; }
   .chapter-copy,.chapter-reverse .chapter-copy { grid-column:1; grid-row:2; min-height:720px; }
