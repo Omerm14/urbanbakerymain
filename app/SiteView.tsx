@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import CareersForm from "./CareersForm";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
@@ -69,7 +70,15 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-title" ref={heroRef}>
-        <img className="hero-bg" src="/images/croissant-layers.jpg" alt="מאפים טריים של Urban Bakery" />
+        <Image
+          className="hero-bg"
+          src="/images/croissant-layers.jpg"
+          alt="מאפים טריים של Urban Bakery"
+          fill
+          sizes="100vw"
+          priority
+          fetchPriority="high"
+        />
         <div className="hero-shade" />
         <div className="hero-center">
           <img src="/images/urban-logo.png" alt="The Urban Bakery" />
@@ -84,7 +93,12 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
 
       <section className="chapter" id="cafe">
         <figure className="chapter-image">
-          <img src="/images/cafe-building.jpg" alt="בית הקפה Urban Bakery במתחם נגה" />
+          <Image
+            src="/images/cafe-building.jpg"
+            alt="בית הקפה Urban Bakery במתחם נגה"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
           <figcaption>01 · NOGA, TEL AVIV–YAFO</figcaption>
         </figure>
         <div className="chapter-copy marble">
@@ -102,7 +116,12 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
 
       <section className="chapter chapter-reverse" id="catering">
         <figure className="chapter-image">
-          <img src="/images/catering-tray.jpg" alt="מגש אירוח של Urban Bakery" />
+          <Image
+            src="/images/catering-tray.jpg"
+            alt="מגש אירוח של Urban Bakery"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
           <figcaption>02 · URBAN TABLE</figcaption>
         </figure>
         <div className="chapter-copy chapter-copy-paper">
@@ -117,7 +136,12 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
 
       <section className="chapter" id="business">
         <figure className="chapter-image">
-          <img src="/images/business-croissant.jpg" alt="קרואסונים טריים בדרך ללקוחות עסקיים" />
+          <Image
+            src="/images/business-croissant.jpg"
+            alt="קרואסונים טריים בדרך ללקוחות עסקיים"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
           <figcaption>03 · FRESH DAILY</figcaption>
         </figure>
         <div className="chapter-copy marble">
