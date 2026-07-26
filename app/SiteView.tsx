@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import CareersForm from "./CareersForm";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
@@ -18,6 +19,21 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
   const content = lang === "en" ? enSiteContent : contentHe;
   const nextLangLabel = translations[lang].langToggleLabel;
   const langToggleAria = translations[lang].langToggleAria;
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+    // Once the entrance animation finishes, drop it so the element stops
+    // being a live, GPU-composited layer — otherwise flipping <html dir>
+    // later (via the language toggle) can leave a stale/glitched frame
+    // on it in some browsers.
+    function settle(event: AnimationEvent) {
+      (event.target as HTMLElement).style.animation = "none";
+    }
+    hero.addEventListener("animationend", settle, true);
+    return () => hero.removeEventListener("animationend", settle, true);
+  }, []);
 
   return (
     <main>
@@ -52,7 +68,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
         </details>
       </header>
 
-      <section className="hero" id="top" aria-labelledby="hero-title">
+      <section className="hero" id="top" aria-labelledby="hero-title" ref={heroRef}>
         <img className="hero-bg" src="/images/croissant-layers.jpg" alt="מאפים טריים של Urban Bakery" />
         <div className="hero-shade" />
         <div className="hero-center">

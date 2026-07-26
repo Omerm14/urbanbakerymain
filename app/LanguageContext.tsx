@@ -33,6 +33,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+    // Flipping `dir` can leave a stale compositor frame on transformed
+    // elements (e.g. the animated hero image) in some browsers. Forcing a
+    // synchronous reflow right after clears it.
+    void document.body.offsetHeight;
   }, [lang]);
 
   const toggleLang = useCallback(() => {
