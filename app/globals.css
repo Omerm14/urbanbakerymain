@@ -109,7 +109,6 @@ footer > a { justify-self:end; }
 .careers-fields input:focus { border-color:var(--gold); background:white; }
 .careers-fields button { margin-top:10px; appearance:none; border:1px solid var(--ink); background:var(--ink); color:white; min-height:50px; padding:0 27px; font:400 14px "IBM Plex Sans Hebrew",Arial,sans-serif; cursor:pointer; }
 .careers-fields button:disabled { opacity:.55; cursor:wait; }
-.careers-error { color:#9f3d33; font-size:13px; }
 .careers-success { margin-top:50px; font-size:17px; color:var(--ink); }
 
 .editor-shell { min-height:100svh; background:#eeeadf; color:var(--ink); }
