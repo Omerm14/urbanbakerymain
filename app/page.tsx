@@ -1,13 +1,12 @@
 import { getSiteContent } from "../db/content";
 import AccessibilityWidget from "./AccessibilityWidget";
+import CareersForm from "./CareersForm";
 
 const whatsappHref = "https://wa.me/972557756454";
 const mapsHref =
   "https://www.google.com/maps/place/The+Urban+Bakery/@32.056378,34.7588157,17z/data=!3m1!4b1!4m6!3m5!1s0x151d4cbc55555555:0x6f63044d8c108031!8m2!3d32.0563735!4d34.7613906!16s%2Fg%2F11c5zyr9s0?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D";
 const instagramHref = "https://www.instagram.com/urbanbakerytlv";
 const tiktokHref = "https://www.tiktok.com/@urbnbakery";
-const careersFormUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfQ1JVMr1MgzpEaD6KX-_w5KOSRgl5YoNPF1uoAKh-0WZ94gA/viewform?embedded=true";
 
 export const dynamic = "force-dynamic";
 
@@ -99,7 +98,7 @@ export default async function Home() {
         <h2>דרושים באורבן</h2>
         <p className="careers-subtitle">משפחת אורבן מתרחבת ואנחנו מחפשים את הטובים ביותר שיצטרפו אלינו למגוון תפקידים!</p>
         <div className="careers-form-wrap">
-          <iframe src={careersFormUrl} title="טופס הצטרפות">טוען טופס…</iframe>
+          <CareersForm />
         </div>
       </section>
 
