@@ -68,6 +68,10 @@ p,h1,h2 { margin:0; }
 footer { min-height:82px; padding:0 clamp(24px,6vw,80px); display:flex; align-items:center; justify-content:space-between; gap:25px; background:var(--cream); font:9px Arial,sans-serif; letter-spacing:.16em; direction:ltr; }
 
 .editor-shell { min-height:100svh; background:#eeeadf; color:var(--ink); }
+.editor-login { min-height:100svh; display:grid; place-items:center; padding:24px; text-align:center; }
+.editor-login form { width:min(360px,100%); display:grid; gap:22px; text-align:right; }
+.editor-login h1 { font-size:22px; font-weight:300; }
+.editor-user button { appearance:none; background:transparent; border:1px solid rgba(255,255,255,.45); color:white; padding:11px 16px; font:300 13px "IBM Plex Sans Hebrew",Arial,sans-serif; cursor:pointer; }
 .editor-header { min-height:118px; padding:25px clamp(24px,5vw,72px); display:flex; justify-content:space-between; align-items:center; gap:30px; background:var(--ink); color:white; direction:ltr; }
 .editor-header > div:first-child { direction:ltr; }
 .editor-header span { font:9px Arial,sans-serif; letter-spacing:.22em; color:#cfab78; }

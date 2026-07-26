@@ -25,16 +25,18 @@ test("ships the Urban Bakery homepage and RTL metadata", async () => {
 });
 
 test("keeps the Content Creator authenticated and connected to editable content", async () => {
-  const [editorPage, editor, apiRoute] = await Promise.all([
+  const [editorPage, editor, apiRoute, auth] = await Promise.all([
     readFile(projectFile("app/editor/page.tsx"), "utf8"),
     readFile(projectFile("app/editor/ContentEditor.tsx"), "utf8"),
     readFile(projectFile("app/api/content/route.ts"), "utf8"),
+    readFile(projectFile("app/editor-auth.ts"), "utf8"),
   ]);
 
-  assert.match(editorPage, /requireChatGPTUser\("\/editor"\)/);
+  assert.match(editorPage, /isEditorAuthenticated\(\)/);
   assert.match(editorPage, /<ContentEditor/);
   assert.match(editor, /\/api\/content/);
-  assert.match(apiRoute, /getChatGPTUser\(\)/);
+  assert.match(apiRoute, /isEditorAuthenticated\(\)/);
   assert.match(apiRoute, /saveSiteContent/);
   assert.match(apiRoute, /status:\s*401/);
+  assert.match(auth, /EDITOR_PASSWORD/);
 });

@@ -1,34 +1,33 @@
-import { env } from "cloudflare:workers";
+import { Redis } from "@upstash/redis";
 import {
   defaultSiteContent,
   normalizeSiteContent,
   type SiteContent,
 } from "../app/site-content";
 
-const createTableSql = `
-  CREATE TABLE IF NOT EXISTS site_content (
-    id TEXT PRIMARY KEY,
-    content TEXT NOT NULL,
-    updated_by TEXT NOT NULL,
-    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-  )
-`;
+const CONTENT_KEY = "site-content";
 
-async function ensureContentTable() {
-  if (!env.DB) throw new Error("Cloudflare D1 binding `DB` is unavailable.");
-  await env.DB.prepare(createTableSql).run();
+type StoredRecord = {
+  content: unknown;
+  updatedBy: string;
+  updatedAt: string;
+};
+
+function getRedis(): Redis | null {
+  const url = process.env.KV_REST_API_URL;
+  const token = process.env.KV_REST_API_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
 }
 
 export async function getSiteContent(): Promise<SiteContent> {
-  await ensureContentTable();
-  const row = await env.DB.prepare(
-    "SELECT content FROM site_content WHERE id = ?",
-  ).bind("main").first<{ content: string }>();
-
-  if (!row) return defaultSiteContent;
+  const redis = getRedis();
+  if (!redis) return defaultSiteContent;
 
   try {
-    return normalizeSiteContent(JSON.parse(row.content));
+    const stored = await redis.get<StoredRecord>(CONTENT_KEY);
+    if (!stored) return defaultSiteContent;
+    return normalizeSiteContent(stored.content);
   } catch {
     return defaultSiteContent;
   }
@@ -38,17 +37,20 @@ export async function saveSiteContent(
   value: unknown,
   updatedBy: string,
 ): Promise<SiteContent> {
-  await ensureContentTable();
-  const content = normalizeSiteContent(value);
+  const redis = getRedis();
+  if (!redis) {
+    throw new Error(
+      "Content storage is not configured. Add a Redis integration (KV_REST_API_URL / KV_REST_API_TOKEN) in your Vercel project to enable saving.",
+    );
+  }
 
-  await env.DB.prepare(`
-    INSERT INTO site_content (id, content, updated_by, updated_at)
-    VALUES (?, ?, ?, CURRENT_TIMESTAMP)
-    ON CONFLICT(id) DO UPDATE SET
-      content = excluded.content,
-      updated_by = excluded.updated_by,
-      updated_at = CURRENT_TIMESTAMP
-  `).bind("main", JSON.stringify(content), updatedBy).run();
+  const content = normalizeSiteContent(value);
+  const record: StoredRecord = {
+    content,
+    updatedBy,
+    updatedAt: new Date().toISOString(),
+  };
+  await redis.set(CONTENT_KEY, record);
 
   return content;
 }
