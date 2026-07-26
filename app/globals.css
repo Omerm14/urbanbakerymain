@@ -82,6 +82,7 @@ footer > a { justify-self:end; }
 
 .credit-bar { padding:14px 24px; background:var(--ink); display:flex; justify-content:center; direction:ltr; }
 .credit-bar a { display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.6); font:9px Arial,sans-serif; letter-spacing:.14em; border-bottom:1px solid transparent; transition:border-color .2s,color .2s; }
+.credit-bar a img { width:16px; height:16px; border-radius:3px; }
 .credit-bar a:hover { color:white; border-color:currentColor; }
 
 .whatsapp-float { position:fixed; right:24px; bottom:24px; z-index:1000; width:56px; height:56px; border-radius:50%; background:#25D366; color:white; display:grid; place-items:center; box-shadow:0 6px 18px rgba(0,0,0,.28); transition:filter .2s; }
