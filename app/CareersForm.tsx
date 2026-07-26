@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useLanguage } from "./LanguageContext";
+import { translations } from "./i18n";
 
 const FORM_ACTION =
   "https://docs.google.com/forms/d/e/1FAIpQLSfQ1JVMr1MgzpEaD6KX-_w5KOSRgl5YoNPF1uoAKh-0WZ94gA/formResponse";
@@ -25,6 +27,8 @@ type Values = {
 const emptyValues: Values = { firstName: "", lastName: "", phone: "", email: "", area: "" };
 
 export default function CareersForm() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
   const [values, setValues] = useState<Values>(emptyValues);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const formRef = useRef<HTMLFormElement>(null);
@@ -46,7 +50,7 @@ export default function CareersForm() {
   }
 
   if (status === "sent") {
-    return <p className="careers-success">תודה! קיבלנו את הפרטים שלך ונחזור אליך בקרוב.</p>;
+    return <p className="careers-success">{t.careersSuccess}</p>;
   }
 
   return (
@@ -61,7 +65,7 @@ export default function CareersForm() {
         onSubmit={submit}
       >
         <label>
-          <span>שם פרטי</span>
+          <span>{t.careersFirstName}</span>
           <input
             required
             name={FIELDS.firstName}
@@ -70,7 +74,7 @@ export default function CareersForm() {
           />
         </label>
         <label>
-          <span>שם משפחה</span>
+          <span>{t.careersLastName}</span>
           <input
             required
             name={FIELDS.lastName}
@@ -79,7 +83,7 @@ export default function CareersForm() {
           />
         </label>
         <label>
-          <span>מספר טלפון</span>
+          <span>{t.careersPhone}</span>
           <input
             required
             type="tel"
@@ -89,7 +93,7 @@ export default function CareersForm() {
           />
         </label>
         <label>
-          <span>אימייל</span>
+          <span>{t.careersEmail}</span>
           <input
             required
             type="email"
@@ -99,7 +103,7 @@ export default function CareersForm() {
           />
         </label>
         <label>
-          <span>אזור מגורים</span>
+          <span>{t.careersArea}</span>
           <input
             required
             name={FIELDS.area}
@@ -108,7 +112,7 @@ export default function CareersForm() {
           />
         </label>
         <button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "שולח..." : "שלח"}
+          {status === "sending" ? t.careersSending : t.careersSubmit}
         </button>
       </form>
     </>

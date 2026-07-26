@@ -1,32 +1,38 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLanguage } from "./LanguageContext";
+import { galleryAlts, translations } from "./i18n";
 
-type GalleryImage = { src: string; alt: string };
-
-const IMAGES: GalleryImage[] = [
-  { src: "/images/gallery/croissant-swirl.jpg", alt: "קרואסון טרי בחיתוך" },
-  { src: "/images/gallery/bread-loaf.jpg", alt: "לחם מחמצת טרי מהתנור" },
-  { src: "/images/gallery/butter-block.jpg", alt: "חמאה עם חותמת The Urban Bakery" },
-  { src: "/images/gallery/pastry-wall-blueberry.jpg", alt: "מגש מאפים ועוגת אוכמניות" },
-  { src: "/images/gallery/matcha-pour.jpg", alt: "יוצקים מאצ׳ה קרה" },
-  { src: "/images/gallery/pastry-wall-jam.jpg", alt: "מגש מאפים עם ריבה וקרם" },
-  { src: "/images/gallery/coffee-pour.jpg", alt: "יוצקים קפה קר" },
-  { src: "/images/gallery/iced-tea-tray.jpg", alt: "תה קר עם לימון" },
-  { src: "/images/gallery/stacked-drinks.jpg", alt: "משקאות קרים בשורה" },
+const IMAGE_SRCS = [
+  "/images/gallery/croissant-swirl.jpg",
+  "/images/gallery/bread-loaf.jpg",
+  "/images/gallery/butter-block.jpg",
+  "/images/gallery/pastry-wall-blueberry.jpg",
+  "/images/gallery/matcha-pour.jpg",
+  "/images/gallery/pastry-wall-jam.jpg",
+  "/images/gallery/coffee-pour.jpg",
+  "/images/gallery/iced-tea-tray.jpg",
+  "/images/gallery/stacked-drinks.jpg",
+  "/images/gallery/iced-drink-croissant.jpg",
+  "/images/gallery/matcha-scooter.jpg",
+  "/images/gallery/pastry-rack-overhead.jpg",
 ];
 
 export default function Gallery() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+  const IMAGES = IMAGE_SRCS.map((src, index) => ({ src, alt: galleryAlts[lang][index] }));
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (activeIndex === null) return;
 
     function next() {
-      setActiveIndex((current) => (current === null ? current : (current + 1) % IMAGES.length));
+      setActiveIndex((current) => (current === null ? current : (current + 1) % IMAGE_SRCS.length));
     }
     function prev() {
-      setActiveIndex((current) => (current === null ? current : (current - 1 + IMAGES.length) % IMAGES.length));
+      setActiveIndex((current) => (current === null ? current : (current - 1 + IMAGE_SRCS.length) % IMAGE_SRCS.length));
     }
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") setActiveIndex(null);
@@ -66,7 +72,7 @@ export default function Gallery() {
           <button
             type="button"
             className="gallery-close"
-            aria-label="סגירה"
+            aria-label={t.galleryClose}
             onClick={(event) => {
               event.stopPropagation();
               setActiveIndex(null);
@@ -77,7 +83,7 @@ export default function Gallery() {
           <button
             type="button"
             className="gallery-nav gallery-prev"
-            aria-label="הקודם"
+            aria-label={t.galleryPrev}
             onClick={(event) => {
               event.stopPropagation();
               setActiveIndex((current) => (current === null ? current : (current - 1 + IMAGES.length) % IMAGES.length));
@@ -93,7 +99,7 @@ export default function Gallery() {
           <button
             type="button"
             className="gallery-nav gallery-next"
-            aria-label="הבא"
+            aria-label={t.galleryNext}
             onClick={(event) => {
               event.stopPropagation();
               setActiveIndex((current) => (current === null ? current : (current + 1) % IMAGES.length));
