@@ -39,6 +39,19 @@ homepage copy without a code change.
 
 See `.env.example` for the full list of environment variables.
 
+### Analytics & SEO
+
+- Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` (format `G-XXXXXXX`) in your Vercel
+  project to enable Google Analytics 4. The tag is only injected when this
+  variable is present, so local/preview builds without it stay untracked.
+- `robots.txt` and `sitemap.xml` are generated automatically (`app/robots.ts`,
+  `app/sitemap.ts`) against the production origin `https://urbanbakery.co`.
+  The `/editor` route is excluded from indexing and disallowed for crawlers.
+- Google Search Console is verified for `urbanbakery.co` as a **domain
+  property** via a DNS TXT record at the registrar (GoDaddy) — this is
+  independent of hosting, so it must be preserved (not removed) whenever DNS
+  is updated to point at this Vercel deployment.
+
 ## Useful Commands
 
 - `npm run dev`: start local development
