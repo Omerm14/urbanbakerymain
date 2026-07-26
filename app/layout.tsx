@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import Script from "next/script";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -37,7 +38,14 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="he" dir="rtl">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          id="aioa-adawidget"
+          src="https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=%23420083&token=&position=bottom_left"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
