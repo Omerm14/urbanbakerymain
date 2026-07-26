@@ -5,7 +5,6 @@ import type { SiteContent } from "../site-content";
 
 type Props = {
   initialContent: SiteContent;
-  userName: string;
 };
 
 type SectionName = "hero" | "cafe" | "catering" | "business" | "contact";
@@ -18,7 +17,7 @@ const sectionTitles: Record<SectionName, string> = {
   contact: "צור קשר",
 };
 
-export default function ContentEditor({ initialContent, userName }: Props) {
+export default function ContentEditor({ initialContent }: Props) {
   const [content, setContent] = useState(initialContent);
   const [active, setActive] = useState<SectionName>("hero");
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
@@ -52,6 +51,11 @@ export default function ContentEditor({ initialContent, userName }: Props) {
     }
   }
 
+  async function logout() {
+    await fetch("/api/editor-logout", { method: "POST" });
+    window.location.reload();
+  }
+
   return (
     <main className="editor-shell" dir="rtl">
       <header className="editor-header">
@@ -60,7 +64,7 @@ export default function ContentEditor({ initialContent, userName }: Props) {
           <h1>Content Creator</h1>
         </div>
         <div className="editor-user">
-          <span>{userName}</span>
+          <button type="button" onClick={logout}>יציאה</button>
           <a href="/" target="_blank" rel="noreferrer">פתיחת האתר ↗</a>
         </div>
       </header>

@@ -1,16 +1,18 @@
-import { getChatGPTUser } from "../../chatgpt-auth";
+import { isEditorAuthenticated } from "../../editor-auth";
 import { getSiteContent, saveSiteContent } from "../../../db/content";
 
 export async function GET() {
-  const user = await getChatGPTUser();
-  if (!user) return Response.json({ error: "Unauthorized" }, { status: 401 });
+  if (!(await isEditorAuthenticated())) {
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
   return Response.json({ content: await getSiteContent() });
 }
 
 export async function PUT(request: Request) {
-  const user = await getChatGPTUser();
-  if (!user) return Response.json({ error: "Unauthorized" }, { status: 401 });
+  if (!(await isEditorAuthenticated())) {
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
   let payload: unknown;
   try {
@@ -19,6 +21,11 @@ export async function PUT(request: Request) {
     return Response.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const content = await saveSiteContent(payload, user.email);
-  return Response.json({ content });
+  try {
+    const content = await saveSiteContent(payload, "editor");
+    return Response.json({ content });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Save failed";
+    return Response.json({ error: message }, { status: 500 });
+  }
 }
