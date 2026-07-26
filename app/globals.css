@@ -97,7 +97,6 @@ footer { min-height:82px; padding:0 clamp(24px,6vw,80px); display:flex; align-it
 .careers-subtitle { max-width:640px; margin:0 auto; font-size:17px; line-height:1.7; color:#5c574d; }
 .careers-form-wrap { margin-top:50px; display:flex; justify-content:center; }
 .careers-form-wrap iframe { width:min(760px,100%); height:1400px; border:0; background:white; }
-.careers-placeholder { max-width:520px; text-align:center; padding:60px 20px; border:1px dashed var(--line); font-size:15px; color:#6d675e; }
 
 .editor-shell { min-height:100svh; background:#eeeadf; color:var(--ink); }
 .editor-login { min-height:100svh; display:grid; place-items:center; padding:24px; text-align:center; }
