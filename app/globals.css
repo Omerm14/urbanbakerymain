@@ -80,23 +80,12 @@ footer > span:first-child { justify-self:start; }
 footer > span:nth-child(2) { justify-self:center; }
 footer > a { justify-self:end; }
 
+.credit-bar { padding:14px 24px; background:var(--ink); display:flex; justify-content:center; direction:ltr; }
+.credit-bar a { display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.6); font:9px Arial,sans-serif; letter-spacing:.14em; border-bottom:1px solid transparent; transition:border-color .2s,color .2s; }
+.credit-bar a:hover { color:white; border-color:currentColor; }
+
 .whatsapp-float { position:fixed; right:24px; bottom:24px; z-index:1000; width:56px; height:56px; border-radius:50%; background:#25D366; color:white; display:grid; place-items:center; box-shadow:0 6px 18px rgba(0,0,0,.28); transition:filter .2s; }
 .whatsapp-float:hover { filter:brightness(1.06); }
-
-.a11y-widget { position:fixed; left:24px; bottom:24px; z-index:1000; }
-.a11y-toggle { width:52px; height:52px; border-radius:50%; border:0; background:var(--ink); color:white; display:grid; place-items:center; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.25); }
-.a11y-panel { position:absolute; bottom:64px; left:0; width:260px; background:white; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:18px; display:grid; gap:16px; box-shadow:0 12px 30px rgba(0,0,0,.18); font-size:14px; font-family:"IBM Plex Sans Hebrew",Arial,sans-serif; }
-.a11y-panel h2 { font-size:15px; font-weight:500; }
-.a11y-group { display:grid; gap:8px; }
-.a11y-row { display:flex; gap:8px; }
-.a11y-row button { flex:1; padding:8px 6px; border:1px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; font-size:12px; font-family:inherit; }
-.a11y-row button.active { background:var(--ink); color:white; border-color:var(--ink); }
-.a11y-check { display:flex; align-items:center; gap:8px; cursor:pointer; }
-.a11y-reset { border:1px solid var(--line); background:transparent; color:var(--ink); padding:9px; cursor:pointer; font-size:13px; font-family:inherit; }
-
-.a11y-contrast, .a11y-contrast *:not(img) { background-color:#000 !important; color:#fff !important; border-color:#fff !important; }
-.a11y-contrast a { color:#ffe27a !important; }
-.a11y-underline-links a { text-decoration:underline !important; }
 
 .careers { padding:clamp(70px,10vw,120px) clamp(24px,8vw,120px); background:var(--cream); text-align:center; border-bottom:1px solid var(--line); }
 .careers h2 { font-size:clamp(38px,5vw,64px); font-weight:200; letter-spacing:-.03em; margin-bottom:20px; }
@@ -199,7 +188,4 @@ footer > a { justify-self:end; }
   .editor-field-group > span { grid-column:auto; }
   .editor-actions { align-items:flex-start; flex-direction:column; }
   .whatsapp-float { right:16px; bottom:16px; width:48px; height:48px; }
-  .a11y-widget { left:16px; bottom:16px; }
-  .a11y-toggle { width:46px; height:46px; }
-  .a11y-panel { width:calc(100vw - 32px); left:0; }
 }

@@ -1,5 +1,4 @@
 import { getSiteContent } from "../db/content";
-import AccessibilityWidget from "./AccessibilityWidget";
 import CareersForm from "./CareersForm";
 
 const whatsappHref = "https://wa.me/972557756454";
@@ -131,11 +130,13 @@ export default async function Home() {
 
       <footer><span>© 2026 THE URBAN BAKERY</span><span>BAKERY · CAFÉ · CATERING</span><a href="#top">BACK TO TOP ↑</a></footer>
 
+      <div className="credit-bar">
+        <a href="https://aaa-tech.com/" target="_blank" rel="noreferrer">Built by AAA – AI Agents Agency</a>
+      </div>
+
       <a className="whatsapp-float" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="שליחת הודעה בוואטסאפ">
         <WhatsAppIcon />
       </a>
-
-      <AccessibilityWidget />
     </main>
   );
 }
