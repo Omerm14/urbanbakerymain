@@ -131,36 +131,13 @@ export default async function Home() {
       <footer><span>© 2026 THE URBAN BAKERY</span><span>BAKERY · CAFÉ · CATERING</span><a href="#top">BACK TO TOP ↑</a></footer>
 
       <div className="credit-bar">
-        <a href="https://aaa-tech.com/" target="_blank" rel="noreferrer">
-          <AAALogo />
-          Built by AAA – AI Agents Agency
-        </a>
+        <a href="https://aaa-tech.com/" target="_blank" rel="noreferrer">Built by AAA – AI Agents Agency</a>
       </div>
 
       <a className="whatsapp-float" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="שליחת הודעה בוואטסאפ">
         <WhatsAppIcon />
       </a>
     </main>
-  );
-}
-
-function AAALogo() {
-  return (
-    <svg viewBox="0 0 200 200" width="18" height="18" aria-hidden="true">
-      <rect x="0" y="0" width="200" height="200" rx="30" fill="#191510" />
-      <polyline
-        points="15,165 45,35 75,130 100,35 125,130 155,35 185,165"
-        fill="none"
-        stroke="#f7f4ee"
-        strokeWidth="26"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-      <path d="M38 42 L45 25 L52 42 Z" fill="#191510" />
-      <path d="M93 42 L100 25 L107 42 Z" fill="#191510" />
-      <path d="M148 42 L155 25 L162 42 Z" fill="#191510" />
-      <rect x="8" y="95" width="184" height="26" fill="#c1893f" />
-    </svg>
   );
 }
 
