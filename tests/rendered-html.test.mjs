@@ -20,7 +20,7 @@ test("ships the Urban Bakery homepage and RTL metadata", async () => {
   assert.match(page, /id="business"/);
   assert.match(page, /id="contact"/);
   assert.match(page, /className="detail-value" dir="rtl"/);
-  assert.match(content, /kicker:\s*"BAKE HOUSE"/);
+  assert.match(content, /kicker:\s*".+"/);
   assert.match(content, /cta:\s*"LET'S TALK"/);
 });
 

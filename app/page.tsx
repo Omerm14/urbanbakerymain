@@ -1,6 +1,12 @@
 import { getSiteContent } from "../db/content";
+import AccessibilityWidget from "./AccessibilityWidget";
 
 const whatsappHref = "https://wa.me/972557756454";
+const mapsHref =
+  "https://www.google.com/maps/place/The+Urban+Bakery/@32.056378,34.7588157,17z/data=!3m1!4b1!4m6!3m5!1s0x151d4cbc55555555:0x6f63044d8c108031!8m2!3d32.0563735!4d34.7613906!16s%2Fg%2F11c5zyr9s0?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D";
+const instagramHref = "https://www.instagram.com/urbanbakerytlv";
+const tiktokHref = "https://www.tiktok.com/@urbnbakery";
+const careersFormUrl = process.env.NEXT_PUBLIC_CAREERS_FORM_URL;
 
 export const dynamic = "force-dynamic";
 
@@ -17,11 +23,12 @@ export default async function Home() {
           <a href="#top">בית</a>
           <a href="#catering">מגשי אירוח</a>
           <a href="#business">לעסקים</a>
+          <a href="#careers">דרושים</a>
           <a href="#contact">צרו קשר</a>
         </nav>
         <details className="mobile-nav">
           <summary aria-label="פתיחת תפריט">תפריט</summary>
-          <nav><a href="#top">בית</a><a href="#catering">מגשי אירוח</a><a href="#business">לעסקים</a><a href="#contact">צרו קשר</a></nav>
+          <nav><a href="#top">בית</a><a href="#catering">מגשי אירוח</a><a href="#business">לעסקים</a><a href="#careers">דרושים</a><a href="#contact">צרו קשר</a></nav>
         </details>
       </header>
 
@@ -34,7 +41,7 @@ export default async function Home() {
           <span className="hero-rule" />
           <a href={whatsappHref} target="_blank" rel="noreferrer">{content.hero.cta}</a>
         </div>
-        <div className="hero-bottom"><span>NITZANA 14</span><span>TEL AVIV–YAFO</span><span>EST. 2012</span></div>
+        <div className="hero-bottom"><span>NITZANA 14 · NOGA SQUARE</span><span className="hero-bottom-city">TEL AVIV–YAFO</span><span>EST. 2012</span></div>
       </section>
 
       <section className="chapter" id="cafe">
@@ -51,7 +58,7 @@ export default async function Home() {
             <p><span className="detail-label">כתובת</span><span className="detail-value" dir="rtl">{content.cafe.address}</span></p>
             <p><span className="detail-label">שעות</span><span className="detail-value" dir="rtl">{content.cafe.hours}</span></p>
           </div>
-          <a className="text-cta" href="https://maps.google.com/?q=%D7%A0%D7%99%D7%A6%D7%A0%D7%94+14+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noreferrer">{content.cafe.cta} ←</a>
+          <a className="text-cta" href={mapsHref} target="_blank" rel="noreferrer">{content.cafe.cta} ←</a>
         </div>
       </section>
 
@@ -85,15 +92,97 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="careers" id="careers">
+        <h2>דרושים באורבן</h2>
+        <p className="careers-subtitle">משפחת אורבן מתרחבת ואנחנו מחפשים את הטובים ביותר שיצטרפו אלינו למגוון תפקידים!</p>
+        <div className="careers-form-wrap">
+          {careersFormUrl ? (
+            <iframe src={careersFormUrl} title="טופס הצטרפות">טוען טופס…</iframe>
+          ) : (
+            <p className="careers-placeholder">
+              טופס ההצטרפות בהקמה. יש להגדיר את משתנה הסביבה NEXT_PUBLIC_CAREERS_FORM_URL עם קישור הטופס.
+            </p>
+          )}
+        </div>
+      </section>
+
       <section className="contact" id="contact">
         <img src="/images/urban-logo.png" alt="The Urban Bakery" />
         <span className="contact-rule" />
         <h2>{content.contact.headline1}<br />{content.contact.headline2}</h2>
         <a className="contact-cta" href={whatsappHref} target="_blank" rel="noreferrer">{content.contact.cta}</a>
-        <div className="contact-details"><a href="tel:+972557756454">055–775–6454</a><a href="https://maps.google.com/?q=%D7%A0%D7%99%D7%A6%D7%A0%D7%94+14+%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noreferrer">ניצנה 14, מתחם נגה</a><span>א׳–ה׳ 07:00–19:00 · ו׳–ש׳ 07:00–16:00</span></div>
+        <a className="contact-address" href={mapsHref} target="_blank" rel="noreferrer">ניצנה 14, מתחם נגה</a>
+        <div className="contact-details">
+          <a className="contact-phone" href="tel:+972557756454" dir="ltr">
+            <PhoneIcon />
+            <span>+972-55-775-6454</span>
+          </a>
+          <span>א׳–ה׳ 07:00–19:00 · ו׳–ש׳ 07:00–16:00</span>
+        </div>
+      </section>
+
+      <section className="social-links" aria-label="עקבו אחרינו">
+        <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="אינסטגרם">
+          <InstagramIcon />
+        </a>
+        <a href={tiktokHref} target="_blank" rel="noreferrer" aria-label="טיקטוק">
+          <TikTokIcon />
+        </a>
+        <a href={mapsHref} target="_blank" rel="noreferrer" aria-label="גוגל מפות">
+          <MapsIcon />
+        </a>
       </section>
 
       <footer><span>© 2026 THE URBAN BAKERY</span><span>BAKERY · CAFÉ · CATERING</span><a href="#top">BACK TO TOP ↑</a></footer>
+
+      <a className="whatsapp-float" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="שליחת הודעה בוואטסאפ">
+        <WhatsAppIcon />
+      </a>
+
+      <AccessibilityWidget />
     </main>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+      <path d="M16.5 3c.34 2.06 1.72 3.55 3.9 3.7v2.72c-1.34.05-2.62-.36-3.75-1.15v6.1c0 3.15-2.35 5.63-5.5 5.63S5.65 17.52 5.65 14.37c0-3.05 2.2-5.5 5.2-5.62v2.75c-1.4.12-2.4 1.28-2.4 2.87 0 1.62 1.28 2.9 2.9 2.9s2.95-1.28 2.95-2.9V3z" />
+    </svg>
+  );
+}
+
+function MapsIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <path d="M12 21s-7-6.13-7-11.5A7 7 0 0 1 19 9.5C19 14.87 12 21 12 21Z" />
+      <circle cx="12" cy="9.5" r="2.4" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+      <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.25 1.02z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true">
+      <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.34.657 4.527 1.797 6.393L4 29l7.822-1.77A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.75a9.7 9.7 0 0 1-4.95-1.356l-.355-.21-4.64 1.05 1.08-4.518-.232-.37A9.68 9.68 0 0 1 5.25 15c0-5.93 4.823-10.75 10.754-10.75S26.75 9.07 26.75 15 21.935 24.75 16.004 24.75Zm5.61-7.36c-.307-.154-1.816-.897-2.098-1-.281-.103-.486-.154-.69.154-.204.308-.79 1-.968 1.206-.178.205-.357.23-.664.077-.307-.154-1.296-.478-2.469-1.523-.913-.814-1.53-1.82-1.709-2.128-.178-.308-.019-.474.135-.628.138-.138.307-.36.46-.54.154-.18.205-.308.307-.513.103-.205.052-.385-.026-.539-.077-.154-.69-1.663-.945-2.278-.249-.598-.502-.517-.69-.527l-.588-.01c-.205 0-.539.077-.82.385-.281.308-1.075 1.05-1.075 2.56s1.1 2.97 1.253 3.175c.154.205 2.166 3.307 5.248 4.637.733.316 1.305.505 1.751.647.735.234 1.404.2 1.933.121.59-.088 1.816-.742 2.072-1.459.256-.717.256-1.332.18-1.46-.077-.128-.281-.205-.588-.36Z" />
+    </svg>
   );
 }
