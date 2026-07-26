@@ -1,5 +1,6 @@
 import { getSiteContent } from "../db/content";
 import CareersForm from "./CareersForm";
+import Gallery from "./Gallery";
 
 const whatsappHref = "https://wa.me/972557756454";
 const mapsHref =
@@ -22,12 +23,13 @@ export default async function Home() {
           <a href="#top">בית</a>
           <a href="#catering">מגשי אירוח</a>
           <a href="#business">לעסקים</a>
+          <a href="#gallery">גלריה</a>
           <a href="#careers">דרושים</a>
           <a href="#contact">צרו קשר</a>
         </nav>
         <details className="mobile-nav">
           <summary aria-label="פתיחת תפריט">תפריט</summary>
-          <nav><a href="#top">בית</a><a href="#catering">מגשי אירוח</a><a href="#business">לעסקים</a><a href="#careers">דרושים</a><a href="#contact">צרו קשר</a></nav>
+          <nav><a href="#top">בית</a><a href="#catering">מגשי אירוח</a><a href="#business">לעסקים</a><a href="#gallery">גלריה</a><a href="#careers">דרושים</a><a href="#contact">צרו קשר</a></nav>
         </details>
       </header>
 
@@ -91,6 +93,13 @@ export default async function Home() {
           <div className="business-points">{content.business.points.map((point) => <span key={point}>{point}</span>)}</div>
           <a className="text-cta" href={whatsappHref} target="_blank" rel="noreferrer">{content.business.cta} ←</a>
         </div>
+      </section>
+
+      <section className="gallery-section" id="gallery">
+        <span className="chapter-label">GALLERY</span>
+        <h2>הרגעים שלנו</h2>
+        <p className="gallery-subtitle">הצצה ליום עבודה באורבן — מהתנור אל השולחן.</p>
+        <Gallery />
       </section>
 
       <section className="careers" id="careers">
