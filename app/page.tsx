@@ -40,7 +40,9 @@ export default async function Home() {
           <img src="/images/urban-logo.png" alt="The Urban Bakery" />
           <h1 id="hero-title">{content.hero.kicker}</h1>
           <span className="hero-rule" />
-          <a href={whatsappHref} target="_blank" rel="noreferrer">{content.hero.cta}</a>
+          <a className="hero-cta" href={whatsappHref} target="_blank" rel="noreferrer" aria-label={content.hero.cta}>
+            <PhoneIcon />
+          </a>
         </div>
         <div className="hero-bottom"><span>NITZANA 14 · NOGA SQUARE</span><span className="hero-bottom-city">TEL AVIV–YAFO</span><span>EST. 2012</span></div>
       </section>
