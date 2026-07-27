@@ -89,6 +89,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
           alt="מאפים טריים של Urban Bakery"
           fill
           sizes="100vw"
+          quality={45}
           priority
           fetchPriority="high"
           placeholder="blur"
