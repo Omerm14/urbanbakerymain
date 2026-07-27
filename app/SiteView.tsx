@@ -107,12 +107,9 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
             <a className="hero-cta" href={whatsappHref} target="_blank" rel="noreferrer" aria-label={content.hero.cta}>
               <PhoneIcon />
             </a>
-            <a className="hero-cta" href={woltHref} target="_blank" rel="noreferrer" aria-label="Wolt">
-              <Image src="/images/wolt-w-mark.png" alt="Wolt" width={19} height={18} />
-            </a>
           </div>
         </div>
-        <div className="hero-bottom"><span>NITZANA 14 · NOGA SQUARE</span><span className="hero-bottom-city">TEL AVIV–YAFO</span><span>EST. 2012</span></div>
+        <div className="hero-bottom"><span>NITZANA 14 · <span className="nowrap-unit">NOGA SQUARE</span></span><span className="hero-bottom-city">TEL AVIV–YAFO</span><span>EST. 2012</span></div>
       </section>
 
       <section className="chapter" id="cafe">
@@ -225,6 +222,9 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
         <a href={mapsHref} target="_blank" rel="noreferrer" aria-label={t.socialMaps}>
           <MapsIcon />
         </a>
+        <a className="wolt-link" href={woltHref} target="_blank" rel="noreferrer" aria-label="Wolt">
+          <Image src="/images/wolt-w-mark.png" alt="Wolt" width={19} height={18} />
+        </a>
       </section>
 
       <footer><span>© 2026 THE URBAN BAKERY</span><span>BAKERY · CAFÉ · CATERING</span><a href="#top">BACK TO TOP ↑</a></footer>
@@ -236,9 +236,6 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
         </a>
       </div>
 
-      <a className="whatsapp-float" href={whatsappHref} target="_blank" rel="noreferrer" aria-label={t.whatsappAria}>
-        <WhatsAppIcon />
-      </a>
     </main>
   );
 }
@@ -278,10 +275,3 @@ function PhoneIcon() {
   );
 }
 
-function WhatsAppIcon() {
-  return (
-    <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true">
-      <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.34.657 4.527 1.797 6.393L4 29l7.822-1.77A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.75a9.7 9.7 0 0 1-4.95-1.356l-.355-.21-4.64 1.05 1.08-4.518-.232-.37A9.68 9.68 0 0 1 5.25 15c0-5.93 4.823-10.75 10.754-10.75S26.75 9.07 26.75 15 21.935 24.75 16.004 24.75Zm5.61-7.36c-.307-.154-1.816-.897-2.098-1-.281-.103-.486-.154-.69.154-.204.308-.79 1-.968 1.206-.178.205-.357.23-.664.077-.307-.154-1.296-.478-2.469-1.523-.913-.814-1.53-1.82-1.709-2.128-.178-.308-.019-.474.135-.628.138-.138.307-.36.46-.54.154-.18.205-.308.307-.513.103-.205.052-.385-.026-.539-.077-.154-.69-1.663-.945-2.278-.249-.598-.502-.517-.69-.527l-.588-.01c-.205 0-.539.077-.82.385-.281.308-1.075 1.05-1.075 2.56s1.1 2.97 1.253 3.175c.154.205 2.166 3.307 5.248 4.637.733.316 1.305.505 1.751.647.735.234 1.404.2 1.933.121.59-.088 1.816-.742 2.072-1.459.256-.717.256-1.332.18-1.46-.077-.128-.281-.205-.588-.36Z" />
-    </svg>
-  );
-}
