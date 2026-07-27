@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { IBM_Plex_Sans_Hebrew } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const SITE_URL = "https://urbanbakery.co";
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
+const ibmPlexSansHebrew = IBM_Plex_Sans_Hebrew({
+  subsets: ["hebrew", "latin"],
+  weight: ["200", "300", "400", "500"],
+  variable: "--font-ibm-plex-hebrew",
+  display: "swap",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -54,7 +62,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="he" dir="rtl">
+    <html lang="he" dir="rtl" className={ibmPlexSansHebrew.variable}>
       <body>
         {children}
         {GA_MEASUREMENT_ID && (
