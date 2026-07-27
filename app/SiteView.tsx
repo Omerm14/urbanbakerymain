@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import CareersForm from "./CareersForm";
+import CustomerLogos from "./CustomerLogos";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
 import { enSiteContent, translations } from "./i18n";
@@ -180,6 +181,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
           <p className="chapter-body">{content.business.body}</p>
           <div className="business-points">{content.business.points.map((point) => <span key={point}>{point}</span>)}</div>
           <a className="text-cta" href={whatsappHref} target="_blank" rel="noreferrer">{content.business.cta} ←</a>
+          <CustomerLogos />
         </div>
       </section>
 
