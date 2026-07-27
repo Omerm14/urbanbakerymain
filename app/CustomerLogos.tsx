@@ -18,7 +18,7 @@ export default function CustomerLogos() {
     <div className="customer-logos">
       <div className="customer-logos-track">
         {track.map((logo, i) => (
-          <img key={`${logo.src}-${i}`} src={logo.src} alt={logo.alt} loading="lazy" />
+          <img key={`${logo.src}-${i}`} src={logo.src} alt={logo.alt} loading="eager" decoding="async" />
         ))}
       </div>
     </div>
