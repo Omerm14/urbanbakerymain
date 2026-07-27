@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useLanguage } from "./LanguageContext";
 import { galleryAlts, translations } from "./i18n";
 
@@ -55,7 +56,13 @@ export default function Gallery() {
             onClick={() => setActiveIndex(index)}
             aria-label={image.alt}
           >
-            <img src={image.src} alt={image.alt} loading="lazy" />
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(max-width: 620px) 50vw, 33vw"
+              loading="lazy"
+            />
           </button>
         ))}
       </div>

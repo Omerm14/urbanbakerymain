@@ -3,6 +3,9 @@ import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
+const SITE_URL = "https://urbanbakery.co";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
   const host = requestHeaders.get("host") ?? "localhost:3000";
@@ -10,9 +13,23 @@ export async function generateMetadata(): Promise<Metadata> {
   const origin = `${protocol}://${host}`;
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: "Urban Bakery | בייקרי, בית קפה ומגשי אירוח בתל אביב",
     description:
       "מאפיית בוטיק ובית קפה במתחם נגה, תל אביב–יפו. מאפים טריים, קפה מוקפד, אספקה לעסקים ומגשי אירוח.",
+    keywords: [
+      "Urban Bakery",
+      "אורבן בייקרי",
+      "בייקרי תל אביב",
+      "בית קפה מתחם נגה",
+      "מאפיית בוטיק תל אביב",
+      "מגשי אירוח תל אביב",
+      "אספקה לעסקים תל אביב",
+      "bakery Tel Aviv",
+      "cafe Noga Square",
+    ],
+    robots: { index: true, follow: true },
+    alternates: { canonical: "/" },
     icons: {
       icon: "/images/urban-logo.png",
       shortcut: "/images/urban-logo.png",
@@ -40,6 +57,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="he" dir="rtl">
       <body>
         {children}
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <Script
           id="aioa-adawidget"
           src="https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=%23420083&token=&position=bottom_left"
