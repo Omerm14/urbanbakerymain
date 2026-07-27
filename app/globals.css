@@ -32,6 +32,7 @@ p,h1,h2 { margin:0; }
 .hero-rule { margin:70px 0 32px; }
 .hero-center > a { font-family:Arial,sans-serif; font-size:16px; letter-spacing:.04em; border-bottom:1px solid transparent; transition:border-color .25s; }
 .hero-center > a:hover { border-color:white; }
+.hero-actions { display:flex; align-items:center; gap:14px; }
 .hero-cta { display:grid; place-items:center; width:52px; height:52px; border-radius:50%; border:1px solid rgba(255,255,255,.6) !important; }
 .hero-cta:hover { border-color:white !important; background:rgba(255,255,255,.12); }
 .hero-bottom { position:absolute; z-index:2; left:6vw; right:6vw; bottom:28px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; font:9px Arial,sans-serif; letter-spacing:.2em; direction:ltr; }
