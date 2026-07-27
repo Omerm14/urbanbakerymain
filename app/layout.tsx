@@ -38,10 +38,6 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     robots: { index: true, follow: true },
     alternates: { canonical: "/" },
-    icons: {
-      icon: "/images/urban-logo.png",
-      shortcut: "/images/urban-logo.png",
-    },
     openGraph: {
       title: "The Urban Bakery",
       description: "בייקרי. בית קפה. מגשי אירוח. במתחם נגה, תל אביב–יפו.",

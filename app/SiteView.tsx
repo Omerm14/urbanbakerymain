@@ -13,6 +13,8 @@ const mapsHref =
   "https://www.google.com/maps/place/The+Urban+Bakery/@32.056378,34.7588157,17z/data=!3m1!4b1!4m6!3m5!1s0x151d4cbc55555555:0x6f63044d8c108031!8m2!3d32.0563735!4d34.7613906!16s%2Fg%2F11c5zyr9s0?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D";
 const instagramHref = "https://www.instagram.com/urbanbakerytlv";
 const tiktokHref = "https://www.tiktok.com/@urbnbakery";
+const woltHref =
+  "https://wolt.com/he/isr/tel-aviv/venue/urban-bakery-1?utm_source=googlemapreserved&utm_campaign=urban-bakery-1&utm_content=676c3862648ecd2129166059&category=bakery&rwg_token=AE37R_jUfqwRsq8E5D5S-xME9-xzK7dPMkJM1AfSBzIIJW7_f3EduXOjuFjIipcz8kUB-YXifnANZsm0b-IcUTNxmPS46pvRng%3D%3D";
 
 // Tiny (12px) low-quality previews generated from the source photos, shown
 // instantly via next/image's blur placeholder so the hero/chapter sections
@@ -100,9 +102,14 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
           <img src="/images/urban-logo.png" alt="The Urban Bakery" />
           <h1 id="hero-title">{content.hero.kicker}</h1>
           <span className="hero-rule" />
-          <a className="hero-cta" href={whatsappHref} target="_blank" rel="noreferrer" aria-label={content.hero.cta}>
-            <PhoneIcon />
-          </a>
+          <div className="hero-actions">
+            <a className="hero-cta" href={whatsappHref} target="_blank" rel="noreferrer" aria-label={content.hero.cta}>
+              <PhoneIcon />
+            </a>
+            <a className="hero-cta" href={woltHref} target="_blank" rel="noreferrer" aria-label="Wolt">
+              <Image src="/images/wolt-w-mark.png" alt="Wolt" width={19} height={18} />
+            </a>
+          </div>
         </div>
         <div className="hero-bottom"><span>NITZANA 14 · NOGA SQUARE</span><span className="hero-bottom-city">TEL AVIV–YAFO</span><span>EST. 2012</span></div>
       </section>
