@@ -203,6 +203,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
         <h2>{content.contact.headline1}<br />{content.contact.headline2}</h2>
         <a className="contact-cta" href={whatsappHref} target="_blank" rel="noreferrer">{content.contact.cta}</a>
         <a className="contact-address" href={mapsHref} target="_blank" rel="noreferrer">{t.contactAddress}</a>
+        <a className="contact-wolt" href={woltHref} target="_blank" rel="noreferrer">Wolt</a>
         <div className="contact-details">
           <a className="contact-phone" href="tel:+972557756454" dir="ltr">
             <PhoneIcon />
@@ -221,9 +222,6 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
         </a>
         <a href={mapsHref} target="_blank" rel="noreferrer" aria-label={t.socialMaps}>
           <MapsIcon />
-        </a>
-        <a className="wolt-link" href={woltHref} target="_blank" rel="noreferrer" aria-label="Wolt">
-          <Image src="/images/wolt-w-mark.png" alt="Wolt" width={19} height={18} />
         </a>
       </section>
 
