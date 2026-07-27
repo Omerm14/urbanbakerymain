@@ -1,11 +1,14 @@
 type Logo = { src: string; alt: string };
 
 const logos: Logo[] = [
-  { src: "/images/logos/logo-1.png", alt: "Customer 1" },
-  { src: "/images/logos/logo-2.png", alt: "Customer 2" },
-  { src: "/images/logos/logo-3.png", alt: "Customer 3" },
-  { src: "/images/logos/logo-4.png", alt: "Customer 4" },
-  { src: "/images/logos/logo-5.png", alt: "Customer 5" },
+  { src: "/images/logos/BUTI_CO_LOGO.avif", alt: "Buti Co" },
+  { src: "/images/logos/HOC.jpg", alt: "HOC" },
+  { src: "/images/logos/adina.jpeg", alt: "Adina" },
+  { src: "/images/logos/logo-beach-club-blanc.png", alt: "Beach Club Blanc" },
+  { src: "/images/logos/gazeta.jpg", alt: "Gazeta" },
+  { src: "/images/logos/paradiso.jpg", alt: "Paradiso" },
+  { src: "/images/logos/facility.jpg", alt: "Facility" },
+  { src: "/images/logos/kohi.jpg", alt: "Kohi" },
 ];
 
 export default function CustomerLogos() {
