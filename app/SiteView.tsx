@@ -14,6 +14,19 @@ const mapsHref =
 const instagramHref = "https://www.instagram.com/urbanbakerytlv";
 const tiktokHref = "https://www.tiktok.com/@urbnbakery";
 
+// Tiny (12px) low-quality previews generated from the source photos, shown
+// instantly via next/image's blur placeholder so the hero/chapter sections
+// have contentful pixels on screen before the full photo finishes loading —
+// this is what the Largest Contentful Paint metric is measured against.
+const heroBlurDataURL =
+  "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASAAwDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAgEAABBAIBBQAAAAAAAAAAAAABAAIDEQQhIgUSM0KR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAXEQEAAwAAAAAAAAAAAAAAAAAAESEx/9oADAMBAAIRAxEAPwBBiRukBcGE0mEUbRGBIHF2/citrNhZcWN2sfpl8qdZ+K49UwzXCY0KsUEdzhIrSeLyBQKEJEP/2Q==";
+const cafeBlurDataURL =
+  "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABAX/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABBEFMTIGEiEigf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8AZJawXKEvCrBxuV5fak3HT8Qk9HdFI452qmk0UECBpAigADziiXmq2qzABpGwu/bmimP/2Q==";
+const cateringBlurDataURL =
+  "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAPAAwDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAgD/xAAeEAACAQUBAQEAAAAAAAAAAAABAhEAAwQSMRMhYf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAWEQEBAQAAAAAAAAAAAAAAAAABAgD/2gAMAwEAAhEDEQA/AFmeeWViYHW5NK/bx7jJ723Z1QA6t8FWTaTGc3Glj1VB7+UVyhqCV1LCYoWrlcxMUG//2Q==";
+const businessBlurDataURL =
+  "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASAAwDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EACMQAAIABQQCAwAAAAAAAAAAAAECAAMEESESEyIxBVEjMnH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABgRAAMBAQAAAAAAAAAAAAAAAAABAhEi/9oADAMBAAIRAxEAPwBElfld6mZdxLXUSB7MPp6iiVX1JPuXJ4opjO8azVFNVO3JpYU3B6zYD8hPNsqpznuJPl4UnGiSUo3UFhYrkW77i2WibScV+vqCCHYJP//Z";
+
 export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
   const { lang, toggleLang } = useLanguage();
   const t = translations[lang];
@@ -78,6 +91,8 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
           sizes="100vw"
           priority
           fetchPriority="high"
+          placeholder="blur"
+          blurDataURL={heroBlurDataURL}
         />
         <div className="hero-shade" />
         <div className="hero-center">
@@ -98,6 +113,8 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
             alt="בית הקפה Urban Bakery במתחם נגה"
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
+            placeholder="blur"
+            blurDataURL={cafeBlurDataURL}
           />
           <figcaption>01 · NOGA, TEL AVIV–YAFO</figcaption>
         </figure>
@@ -121,6 +138,8 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
             alt="מגש אירוח של Urban Bakery"
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
+            placeholder="blur"
+            blurDataURL={cateringBlurDataURL}
           />
           <figcaption>02 · URBAN TABLE</figcaption>
         </figure>
@@ -141,6 +160,8 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
             alt="קרואסונים טריים בדרך ללקוחות עסקיים"
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
+            placeholder="blur"
+            blurDataURL={businessBlurDataURL}
           />
           <figcaption>03 · FRESH DAILY</figcaption>
         </figure>
