@@ -107,7 +107,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
               <PhoneIcon />
             </a>
             <a className="hero-cta" href={woltHref} target="_blank" rel="noreferrer" aria-label="Wolt">
-              <Image src="/images/wolt-w-mark.png" alt="Wolt" width={17} height={18} />
+              <Image src="/images/wolt-w-mark.png" alt="Wolt" width={19} height={18} />
             </a>
           </div>
         </div>
