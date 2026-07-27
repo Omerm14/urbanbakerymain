@@ -13,7 +13,7 @@ test("ships the Urban Bakery homepage and RTL metadata", async () => {
   ]);
 
   assert.match(layout, /title:\s*"Urban Bakery/);
-  assert.match(layout, /<html lang="he" dir="rtl">/);
+  assert.match(layout, /<html lang="he" dir="rtl"[^>]*>/);
   assert.doesNotMatch(layout, /codex-preview|Starter Project/);
 
   assert.match(page, /<SiteView/);
