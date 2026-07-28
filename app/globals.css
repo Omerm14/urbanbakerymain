@@ -208,7 +208,6 @@ html[dir="ltr"] .careers-fields { text-align:left; }
   .hero-center h1 { font-size:11px; letter-spacing:.04em; }
   .hero-rule { margin:55px 0 28px; }
   .hero-bottom { left:20px; right:20px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; }
-  .hero-bottom span:nth-child(2) { display:none; }
   .hero-bottom span:last-child { text-align:center; }
   .chapter-image,.chapter-reverse .chapter-image { min-height:72svh; }
   .chapter-copy,.chapter-reverse .chapter-copy { min-height:auto; padding:88px 20px 95px; }

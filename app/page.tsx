@@ -22,6 +22,7 @@ const structuredData = {
     "@type": "PostalAddress",
     streetAddress: "Nitzana 14, Noga Square",
     addressLocality: "Tel Aviv-Yafo",
+    addressRegion: "Tel Aviv District",
     addressCountry: "IL",
   },
   geo: {
