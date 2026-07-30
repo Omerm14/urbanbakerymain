@@ -80,7 +80,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Script
           id="aioa-adawidget"
           src="https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=%23420083&token=&position=bottom_left"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
