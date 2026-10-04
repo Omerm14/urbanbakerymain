@@ -56,7 +56,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
     <main>
       <header className="site-header">
         <a className="mini-logo" href="#top" aria-label={t.logoAria}>
-          <img src="/images/urban-logo.png" alt="The Urban Bakery" />
+          <img src="/images/urban-logo.svg" alt="The Urban Bakery" />
         </a>
         <nav className="site-nav" aria-label="ניווט ראשי">
           <a href="#top">{t.navHome}</a>
@@ -100,7 +100,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
         />
         <div className="hero-shade" />
         <div className="hero-center">
-          <img src="/images/urban-logo.png" alt="The Urban Bakery" />
+          <img src="/images/urban-logo.svg" alt="The Urban Bakery" />
           <h1 id="hero-title">{content.hero.kicker}</h1>
           <span className="hero-rule" />
           <div className="hero-actions">
@@ -198,7 +198,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
       </section>
 
       <section className="contact" id="contact">
-        <img src="/images/urban-logo.png" alt="The Urban Bakery" />
+        <img src="/images/urban-logo.svg" alt="The Urban Bakery" />
         <span className="contact-rule" />
         <h2>{content.contact.headline1}<br />{content.contact.headline2}</h2>
         <a className="contact-cta" href={whatsappHref} target="_blank" rel="noreferrer">{content.contact.cta}</a>
