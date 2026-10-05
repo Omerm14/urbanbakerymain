@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { IBM_Plex_Sans_Hebrew } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const SITE_URL = "https://urbanbakery.co";
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           src="https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=%23420083&token=&position=bottom_left"
           strategy="afterInteractive"
         />
+        <Analytics />
       </body>
     </html>
   );
