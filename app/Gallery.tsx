@@ -18,6 +18,15 @@ const IMAGE_SRCS = [
   "/images/gallery/iced-drink-croissant.jpg",
   "/images/gallery/matcha-scooter.jpg",
   "/images/gallery/pastry-rack-overhead.jpg",
+  "/images/gallery/pastry-flatlay.jpg",
+  "/images/gallery/flour-hands-dough.jpg",
+  "/images/gallery/pain-au-chocolat.jpg",
+  "/images/gallery/oven-loading.jpg",
+  "/images/gallery/raspberry-danish-sugar.jpg",
+  "/images/gallery/sourdough-oven.jpg",
+  "/images/gallery/glazed-pastries-closeup.jpg",
+  "/images/gallery/flour-pour.jpg",
+  "/images/gallery/apron-tie.jpg",
 ];
 
 export default function Gallery() {
