@@ -208,3 +208,16 @@ export const galleryAlts: Record<Lang, string[]> = {
     "Tying an Urban Bakery apron",
   ],
 };
+
+export const cateringAlts: Record<Lang, string[]> = {
+  he: [
+    "מגש קייטרינג של כריכי בייגלה",
+    "מגשי קייטרינג של כריכים ומאפים מלמעלה",
+    "מגשי כריכים ומאפים לאירוע",
+  ],
+  en: [
+    "A catering box of pretzel sandwiches",
+    "Catering boxes of sandwiches and pastries from above",
+    "Sandwich and pastry boxes ready for an event",
+  ],
+};

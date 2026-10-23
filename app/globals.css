@@ -66,6 +66,7 @@ p,h1,h2 { margin:0; }
 .text-cta { margin-top:38px; padding-bottom:7px; border-bottom:1px solid; font-size:14px; font-weight:400; }
 .chapter-list { width:100%; list-style:none; padding:0; margin:44px 0 0; border-top:1px solid var(--line); }
 .chapter-list li { padding:16px 0; border-bottom:1px solid var(--line); font-size:15px; }
+.catering-strip { width:100%; margin-top:32px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .business-points { width:100%; margin-top:45px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:grid; grid-template-columns:repeat(3,1fr); }
 .business-points span { padding:19px 8px; text-align:center; font-size:12px; }
 .business-points span + span { border-right:1px solid var(--line); }
