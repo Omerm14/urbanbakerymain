@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import CareersForm from "./CareersForm";
 import CustomerLogos from "./CustomerLogos";
-import Gallery from "./Gallery";
+import Gallery, { CateringPhotos } from "./Gallery";
 import { useLanguage } from "./LanguageContext";
 import { enSiteContent, translations } from "./i18n";
 import type { SiteContent } from "./site-content";
@@ -155,6 +155,7 @@ export default function SiteView({ contentHe }: { contentHe: SiteContent }) {
           <p className="chapter-lead">{content.catering.lead1}<br />{content.catering.lead2}</p>
           <p className="chapter-body">{content.catering.body}</p>
           <ul className="chapter-list">{content.catering.items.map((item) => <li key={item}>{item}</li>)}</ul>
+          <CateringPhotos />
           <a className="text-cta" href={whatsappHref} target="_blank" rel="noreferrer">{content.catering.cta} ←</a>
         </div>
       </section>

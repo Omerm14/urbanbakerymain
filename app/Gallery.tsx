@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "./LanguageContext";
-import { galleryAlts, translations } from "./i18n";
+import { cateringAlts, galleryAlts, translations, type Lang } from "./i18n";
 
 const IMAGE_SRCS = [
   "/images/gallery/croissant-swirl.jpg",
@@ -29,20 +29,44 @@ const IMAGE_SRCS = [
   "/images/gallery/apron-tie.jpg",
 ];
 
+const CATERING_SRCS = [
+  "/images/catering-pretzel-sandwiches.jpg",
+  "/images/catering-boxes-overhead.jpg",
+  "/images/catering-spread.jpg",
+];
+
 export default function Gallery() {
+  return <PhotoGrid srcs={IMAGE_SRCS} alts={galleryAlts} className="gallery-grid" sizes="(max-width: 620px) 50vw, 33vw" />;
+}
+
+export function CateringPhotos() {
+  return <PhotoGrid srcs={CATERING_SRCS} alts={cateringAlts} className="catering-strip" sizes="(max-width: 900px) 33vw, 15vw" />;
+}
+
+function PhotoGrid({
+  srcs,
+  alts,
+  className,
+  sizes,
+}: {
+  srcs: string[];
+  alts: Record<Lang, string[]>;
+  className: string;
+  sizes: string;
+}) {
   const { lang } = useLanguage();
   const t = translations[lang];
-  const IMAGES = IMAGE_SRCS.map((src, index) => ({ src, alt: galleryAlts[lang][index] }));
+  const IMAGES = srcs.map((src, index) => ({ src, alt: alts[lang][index] }));
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (activeIndex === null) return;
 
     function next() {
-      setActiveIndex((current) => (current === null ? current : (current + 1) % IMAGE_SRCS.length));
+      setActiveIndex((current) => (current === null ? current : (current + 1) % IMAGES.length));
     }
     function prev() {
-      setActiveIndex((current) => (current === null ? current : (current - 1 + IMAGE_SRCS.length) % IMAGE_SRCS.length));
+      setActiveIndex((current) => (current === null ? current : (current - 1 + IMAGES.length) % IMAGES.length));
     }
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") setActiveIndex(null);
@@ -52,11 +76,11 @@ export default function Gallery() {
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [activeIndex]);
+  }, [activeIndex, IMAGES.length]);
 
   return (
     <>
-      <div className="gallery-grid">
+      <div className={className}>
         {IMAGES.map((image, index) => (
           <button
             type="button"
@@ -69,7 +93,7 @@ export default function Gallery() {
               src={image.src}
               alt={image.alt}
               fill
-              sizes="(max-width: 620px) 50vw, 33vw"
+              sizes={sizes}
               loading="lazy"
             />
           </button>
