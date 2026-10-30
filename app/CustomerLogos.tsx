@@ -9,6 +9,9 @@ const logos: Logo[] = [
   { src: "/images/logos/paradiso.jpg", alt: "Paradiso" },
   { src: "/images/logos/facility.jpg", alt: "Facility" },
   { src: "/images/logos/kohi.jpg", alt: "Kohi" },
+  { src: "/images/logos/drisco.png", alt: "The Drisco" },
+  { src: "/images/logos/george-and-john.png", alt: "George & John" },
+  { src: "/images/logos/ligori.png", alt: "Ligori" },
 ];
 
 export default function CustomerLogos() {
